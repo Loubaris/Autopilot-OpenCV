@@ -48,8 +48,8 @@ def make_points(image, line):
     return [[x1, y1, x2, y2]]
  
 def average_slope_intercept(image, lines):
-    left_fit    = []
-    right_fit   = []
+    left_fit = []
+    right_fit = []
     if lines is None:
         return None
     for line in lines:
@@ -61,9 +61,9 @@ def average_slope_intercept(image, lines):
                 left_fit.append((slope, intercept))
             else:
                 right_fit.append((slope, intercept))
-    left_fit_average  = np.average(left_fit, axis=0)
+    left_fit_average = np.average(left_fit, axis=0)
     right_fit_average = np.average(right_fit, axis=0)
-    left_line  = make_points(image, left_fit_average)
+    left_line = make_points(image, left_fit_average)
     right_line = make_points(image, right_fit_average)
     averaged_lines = [left_line, right_line]
     return averaged_lines
